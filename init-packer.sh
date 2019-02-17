@@ -45,7 +45,7 @@ LATEST_GIT_HASH=$( git log -1 | grep commit | sed -e 's/commit //g' | cut -c1-7 
 echo "[DEBUG] LATEST_GIT_HASH=${LATEST_GIT_HASH}"
 
 # Check if AMI already existed or not
-AMI_COUNT=$( aws ec2 --profile=fsbft --region ${AWS_REGION} describe-images --filters "Name=name,Values=ubuntu_${UBUNTU_VERSION_SHORT}_${UPSTREAM_UBUNTU_RELEASE}_${LATEST_GIT_HASH}" --owners ${AWS_OWNER} | jq ".Images | length" )
+AMI_COUNT=$( aws ec2 --profile=${AWS_PROFILE} --region ${AWS_REGION} describe-images --filters "Name=name,Values=ubuntu_${UBUNTU_VERSION_SHORT}_${UPSTREAM_UBUNTU_RELEASE}_${LATEST_GIT_HASH}" --owners ${AWS_OWNER} | jq ".Images | length" )
 
 echo "[DEBUG] AMI_COUNT=${AMI_COUNT}"
 
