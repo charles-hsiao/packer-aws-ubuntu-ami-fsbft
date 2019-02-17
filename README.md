@@ -38,7 +38,7 @@ On Mac
 brew install gnu-sed
 ``` 
 
-## Usage
+## Usage( Build Ubuntu AMI)
 
 ### Use init-packer.sh to build AMI
 init-packer.sh will check:
@@ -52,5 +52,22 @@ bash init-packer.sh ${AWS_OWNER} ${AWS_REGION} ${UBUNTU_VERSION} ${AWS_VOLUME} $
 
 Example
 ```
-bash init-packer.sh 100005588888 ap-southeast-1 18.04 hvm:ebs-ssd amd64
+bash init-packer.sh 100005588888 us-west-2 18.04 hvm:ebs-ssd amd64
 ```
+
+## Usage ( Build geth nodes AMI )
+
+### Use `build-packer.sh` to build AMI
+
+Command
+
+```
+bash ./build-packer.sh ${AWS_REGION} ${UBUNTU_VERSION} ${AWS_VOLUME} ${AMI_ARCH} ${TEMPLATE}
+```
+
+Example
+
+```
+bash ./build-packer.sh us-west-2 18.04 hvm:ebs-ssd amd64 templates/geth_nodes_ubuntu_1804.json
+```
+
