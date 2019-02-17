@@ -62,12 +62,12 @@ bash init-packer.sh 100005588888 us-west-2 18.04 hvm:ebs-ssd amd64
 Command
 
 ```
-bash ./build-packer.sh ${AWS_REGION} ${UBUNTU_VERSION} ${AWS_VOLUME} ${AMI_ARCH} ${TEMPLATE}
+bash build-packer.sh ${AWS_REGION} ${UBUNTU_VERSION} ${AWS_VOLUME} ${AMI_ARCH} ${TEMPLATE}
 ```
 
 Example
 
 ```
-bash ./build-packer.sh us-west-2 18.04 hvm:ebs-ssd amd64 templates/geth_nodes_ubuntu_1804.json
+bash build-packer.sh us-west-2 18.04 hvm:ebs-ssd amd64 templates/geth_nodes_ubuntu_1804.json
 ```
 
