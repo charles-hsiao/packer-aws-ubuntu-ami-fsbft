@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -e
+set -ex
 
 sudo apt-get -y install python-pip
 
