@@ -25,6 +25,7 @@
     {
       "type": "shell",
       "scripts": [
+        "./share/common/apt-get-update.sh",
         "./share/common/install_ntp.sh",
         "./share/common/install_awscli.sh"
       ]
