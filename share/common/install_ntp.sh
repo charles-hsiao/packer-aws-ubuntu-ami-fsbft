@@ -1,9 +1,6 @@
 #!/bin/bash
 
-set -e
-
-sudo apt-get upgrade
-sudo apt-get update
+set -ex
 
 sudo apt-get install -y ntp
 sudo apt-get install -y ntpdate
