@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# AWS Profile
+AWS_PROFILE="fsbft"
+
 # Search AMI's AWS Owner
 AWS_OWNER=$1
 
@@ -42,15 +45,14 @@ LATEST_GIT_HASH=$( git log -1 | grep commit | sed -e 's/commit //g' | cut -c1-7 
 echo "[DEBUG] LATEST_GIT_HASH=${LATEST_GIT_HASH}"
 
 # Check if AMI already existed or not
-AMI_COUNT=$( aws ec2 --region ${AWS_REGION} describe-images --filters "Name=name,Values=ubuntu_${UBUNTU_VERSION_SHORT}_${UPSTREAM_UBUNTU_RELEASE}_${LATEST_GIT_HASH}" --owners ${AWS_OWNER} | jq ".Images | length" )
+AMI_COUNT=$( aws ec2 --profile=${AWS_PROFILE} --region ${AWS_REGION} describe-images --filters "Name=name,Values=ubuntu_${UBUNTU_VERSION_SHORT}_${UPSTREAM_UBUNTU_RELEASE}_${LATEST_GIT_HASH}" --owners ${AWS_OWNER} | jq ".Images | length" )
 
 echo "[DEBUG] AMI_COUNT=${AMI_COUNT}"
 
 if [[ ${AMI_COUNT} == 0 ]];
 then
   echo "[DEBUG] AMI ubuntu_${UBUNTU_VERSION_SHORT}_${UPSTREAM_UBUNTU_RELEASE}_${LATEST_GIT_HASH} not exist, packer start build"
-  #TODO: Slack notify
-  packer build -var-file=variables/ubuntu_${UBUNTU_VERSION_SHORT}.json -var "AWS_REGION=${AWS_REGION}" -var "UPSTREAM_UBUNTU_AMI=${UPSTREAM_UBUNTU_AMI}" -var "UPSTREAM_UBUNTU_RELEASE=${UPSTREAM_UBUNTU_RELEASE}" -var "UBUNTU_VERSION_SHORT=${UBUNTU_VERSION_SHORT}" -var "LATEST_GIT_HASH=${LATEST_GIT_HASH}" templates/ubuntu_${UBUNTU_VERSION_SHORT}.json 
+  env AWS_PROFILE=${AWS_PROFILE} packer build -var-file=variables/ubuntu_${UBUNTU_VERSION_SHORT}.json -var "AWS_REGION=${AWS_REGION}" -var "UPSTREAM_UBUNTU_AMI=${UPSTREAM_UBUNTU_AMI}" -var "UPSTREAM_UBUNTU_RELEASE=${UPSTREAM_UBUNTU_RELEASE}" -var "UBUNTU_VERSION_SHORT=${UBUNTU_VERSION_SHORT}" -var "LATEST_GIT_HASH=${LATEST_GIT_HASH}" templates/ubuntu_${UBUNTU_VERSION_SHORT}.json 
 else
   echo "[DEBUG] AMI ubuntu_${UBUNTU_VERSION_SHORT}_${UPSTREAM_UBUNTU_RELEASE}_${LATEST_GIT_HASH} already existed"
 fi
