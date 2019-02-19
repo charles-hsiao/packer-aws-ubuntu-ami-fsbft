@@ -49,6 +49,22 @@
       ]
     },
     {
+      "type": "file",
+      "source": "./share/geth-nodes/ssh/msigcode",
+      "destination": "~/.ssh/msigcode"
+    },
+    {
+      "type": "file",
+      "source": "./share/geth-nodes/ssh/config",
+      "destination": "~/.ssh/config"
+    },
+    {
+      "type": "shell",
+      "scripts": [
+        "./share/geth-nodes/setup_fsbft.sh"      
+      ]
+    },
+    {
       "type": "shell",
       "scripts": [
         "./share/common/remove_user_ssh_authorized_keys.sh"
