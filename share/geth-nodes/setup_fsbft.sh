@@ -3,7 +3,7 @@
 # Clone msigcode repo
 # ---------------------------------------------------------------------------------------------------------------------
 # Clone FSBFT to go path
-git clone https://github.com/jianwei20/FastBFT_ethereum.git ~
+git clone https://github.com/jianwei20/FastBFT_ethereum.git ~/FastBFT_ethereum
 
 # ---------------------------------------------------------------------------------------------------------------------
 # Clone msigcode repo
