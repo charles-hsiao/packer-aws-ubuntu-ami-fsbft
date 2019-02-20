@@ -12,3 +12,6 @@ nvm use node
 # Version check
 node -v
 npm -v
+
+# Install ethereumjs-wallet via npm
+npm install ethereumjs-wallet
