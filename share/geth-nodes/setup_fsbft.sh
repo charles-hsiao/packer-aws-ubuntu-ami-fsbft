@@ -42,9 +42,3 @@ go get github.com/ethereum/go-ethereum
 cd $GOPATH/src/github.com/ethereum/go-ethereum
 make geth
 
-# ---------------------------------------------------------------------------------------------------------------------
-# Install packages & Geth
-# ---------------------------------------------------------------------------------------------------------------------
-
-# Install ethereumjs-wallet via npm
-npm install ethereumjs-wallet
