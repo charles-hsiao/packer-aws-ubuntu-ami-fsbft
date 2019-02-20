@@ -45,7 +45,8 @@
       "type": "shell",
       "scripts": [
         "./share/common/install_awscli.sh",
-        "./share/geth-nodes/install_golang.sh"
+        "./share/geth-nodes/install_golang.sh",
+        "./share/geth-nodes/install_nodejs.sh"
       ]
     },
     {
