@@ -48,6 +48,12 @@
       ]
     },
     {
+      "type": "shell",
+      "scripts": [
+        "./share/geth-nodes-ct/install_ansible.sh"
+      ]
+    },
+    {
       "type": "file",
       "source": "./share/geth-nodes-ct/ssh/ssh-fsbft.pem",
       "destination": "~/.ssh/ssh-fsbft.pem"
