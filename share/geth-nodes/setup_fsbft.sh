@@ -1,4 +1,8 @@
 #!/bin/sh
+# export go env
+export GOPATH=/home/ubuntu/go
+export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/local/go/bin:/bin
+
 # ---------------------------------------------------------------------------------------------------------------------
 # Clone msigcode repo
 # ---------------------------------------------------------------------------------------------------------------------
