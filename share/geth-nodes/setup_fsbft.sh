@@ -47,7 +47,7 @@ export "PATH=$PATH:/usr/local/go/bin:$GOPATH/bin"
 
 # Go get geth
 #/usr/local/go/bin/go get github.com/ethereum/go-ethereum
-go get github.com/ethereum/go-ethereum
+go get -u github.com/ethereum/go-ethereum
 
 # Compile geth
 cd $GOPATH/src/github.com/ethereum/go-ethereum
